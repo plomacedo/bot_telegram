@@ -20,4 +20,65 @@ public class DataBot {
 ```
 ### 🛠️ Desenvolvimento
 
+```
+try {
+			TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
+			telegramBotsApi.registerBot(new Bot());
+		} catch (TelegramApiException e) {
+			e.printStackTrace();
+		}
+```
 
+```
+ public class Bot extends TelegramLongPollingBot
+```
+
+```
+public void onUpdateReceived(Update update) {
+		if (update.hasMessage() && update.getMessage().hasText()) {
+			var message = reply(update);
+			try {
+				execute(message);
+			} catch (TelegramApiException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+	public String getBotUsername() {
+		return DataBot.BOT_USER_NAME;
+	}
+
+	public String getBotToken() {
+		return DataBot.BOT_TOKEN;
+	}
+
+```
+```
+	private SendMessage reply(Update update) {
+		var message = update.getMessage().getText().toLowerCase();
+		var chatId = update.getMessage().getChatId().toString();
+
+		var reply = "";
+
+
+		if (message.startsWith("ola") || message.startsWith("olá") || message.startsWith("oi")) {
+			reply = "Olá, Seja bem vindo(a) ao bot da turma 1SCJR!";
+		} else if (message.startsWith("quem é você") || message.startsWith("quem e voce")) {
+			reply = getGroupInfo();
+		}else if ("data".equals(message)||"dia".equals(message)) {
+			reply = "A data de hoje é " + getData();
+		} else if (message.startsWith("hora")) {
+			reply = "A hora atual é " + getHora();
+		} else if (message.startsWith("/help")) {
+			reply = "Utilize um dos comandos:\nolá\ndata\nhora\nquem é você?";
+		} else {
+			reply = "Não entendi!\nDigite /help para ver os comandos disponíveis.";
+		}
+
+		return SendMessage.builder()
+				.text(reply)
+				.chatId(chatId)
+				.build();
+	}
+```
