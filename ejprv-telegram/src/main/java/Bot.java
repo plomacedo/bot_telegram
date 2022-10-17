@@ -57,7 +57,7 @@ public class Bot extends TelegramLongPollingBot{
 
 	private String getGroupInfo() {
 		return "Somos os alunos da turma 1SCJR do MBA de Desenvolvimento FullStack da FIAP: " +
-				"\n\nRM346614 - Ebbert Costa dos Santos " +
+				"\n\nRM346614 - Ebertt Costa dos Santos " +
 				"\nRM346139 - Juliana Mota Carneiro" +
 				"\nRM347401 - Pamela Lais Oliveira Macedo" +
 				"\nRM346573 - Rafael Luiz Ross de Moura " +
