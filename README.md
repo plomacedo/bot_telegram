@@ -2,7 +2,7 @@
 
 # MBA Fullstack FIAP - Turma 1SCJR
 
-+ RM346614 - Ebbert Costa dos Santos 
++ RM346614 - Ebertt Costa dos Santos 
 + RM346139 - Juliana Mota Carneiro 
 + RM347401 - Pamela Lais Oliveira Macedo 
 + RM346573 - Rafael Luiz Ross de Moura 
