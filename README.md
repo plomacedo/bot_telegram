@@ -16,7 +16,7 @@ Neste mesmo arquivo, consta a url da API utilizada para o bot de tempo (WEATHER_
 
 Para a execução do projeto, renomeie o arquivo apenas para env.properties
 
-```
+
 ### 🛠️ Desenvolvimento
 
 Para o gerenciamento de dependências, utilizamos Maven, onde adicionamos as dependências do telegram e do spring boot no arquivo pom.xml
