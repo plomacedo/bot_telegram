@@ -31,7 +31,7 @@ Para o gerenciamento de dependências, utilizamos Maven, onde adicionamos as dep
   </dependencies>
 ```
 
-
+Para inicializar a aplicação, no @bean do spring boot, o Environment irá buscar os dados no env.properties, e iniciar a chamada da api
 ```
 try {
 			TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
