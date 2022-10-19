@@ -20,7 +20,7 @@ public class CurrencyService {
         Gson gson = new Gson();
         Type listType = new TypeToken<ArrayList<Moeda>>(){}.getType();
         List<Moeda> listMoedas = gson.fromJson(currencies.toString(),listType);
-        String currenciesResult = "Digite: cotação simbolo_moeda \n\n";
+        String currenciesResult = "Digite: cotação [simbolo_moeda] \n\n";
         currenciesResult += "Ex.: cotação USD";
         for (Moeda moeda : listMoedas) {
             currenciesResult += moeda.getSimbolo() + " - " + moeda.getNomeFormatado() + "\n";

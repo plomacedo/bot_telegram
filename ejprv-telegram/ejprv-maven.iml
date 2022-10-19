@@ -32,7 +32,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.3.23" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.23" level="project" />
     <orderEntry type="library" name="Maven: org.yaml:snakeyaml:1.30" level="project" />
-    <orderEntry type="library" name="Maven: org.ini4j:ini4j:0.5.4" level="project" />
     <orderEntry type="library" name="Maven: com.konghq:unirest-java:3.13.11" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.13" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.15" level="project" />
