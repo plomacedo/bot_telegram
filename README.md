@@ -19,7 +19,7 @@ Para a execução do projeto, renomeie o arquivo apenas para env.properties
 ```
 ### 🛠️ Desenvolvimento
 
-Para o gerenciamento de dependências, utilizamos Maven, onde adicionamos a dependência do telegram no arquivo pom.xml
+Para o gerenciamento de dependências, utilizamos Maven, onde adicionamos as dependências do telegram e do spring boot no arquivo pom.xml
 
 ```
  <dependencies>
