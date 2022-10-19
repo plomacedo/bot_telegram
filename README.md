@@ -11,14 +11,9 @@
 ### 🔧 Instalação
 Para utilizar nosso bot, acesse **_[Turma 1SCJR - galerinha de java](https://t.me/Ejprv_bot)_**.
 <br> Após a instalação do Git em sua máquina, clone o repositório https://github.com/plomacedo/bot_telegram</br>
-<br> Tenha em mãos um Token Telegram válido, e o atribua no BOT_TOKEN. A classe DataBot possui as informações utilziadas para a criação do Bot através do BotFather.</br>
+<br> Tenha em mãos um Token Telegram válido, e o atribua no BOT_TOKEN, dentro do arquivo de constantes env.properties, assim como o seu BOT_USER_NAME.
+Neste mesmo arquivo, consta a url da API utilizada para o bot de tempo (WEATHER_API_URL), assim como a constante que deverá armazenar o token gerado para a API (WEATHER_API_TOKEN)
 
-```
-
-public class DataBot {
-	public static final String BOT_TOKEN = "";
-	public static final String BOT_USER_NAME = "Ejprv_bot";
-}
 ```
 ### 🛠️ Desenvolvimento
 
