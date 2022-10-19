@@ -22,6 +22,19 @@ public class DataBot {
 ```
 ### 🛠️ Desenvolvimento
 
+Para o gerenciamento de dependências, utilizamos Maven, onde adicionamos a dependência do telegram no arquivo pom.xml
+
+```
+ <dependencies>
+  	<dependency>
+  		<groupId>org.telegram</groupId>
+		<artifactId>telegrambots</artifactId>
+		<version>5.3.0</version>
+  	</dependency>
+  </dependencies>
+```
+
+
 ```
 try {
 			TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
