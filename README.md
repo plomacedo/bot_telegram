@@ -11,8 +11,10 @@
 ### 🔧 Instalação
 Para utilizar nosso bot, acesse **_[Turma 1SCJR - galerinha de java](https://t.me/Ejprv_bot)_**.
 <br> Após a instalação do Git em sua máquina, clone o repositório https://github.com/plomacedo/bot_telegram</br>
-<br> Tenha em mãos um Token Telegram válido, e o atribua no BOT_TOKEN, dentro do arquivo de constantes env.properties, assim como o seu BOT_USER_NAME.
-Neste mesmo arquivo, consta a url da API utilizada para o bot de tempo (WEATHER_API_URL), assim como a constante que deverá armazenar o token gerado para a API (WEATHER_API_TOKEN)
+<br> Tenha em mãos um Token Telegram válido, e o atribua no BOT_TOKEN, dentro do arquivo de constantes env.properties.exemplo, assim como o seu BOT_USER_NAME.
+Neste mesmo arquivo, consta a url da API utilizada para o bot de tempo (WEATHER_API_URL),  a constante que deverá armazenar o token gerado para a API (WEATHER_API_TOKEN), assim como as URLs do banco central que retorna todas as moedas disponíveis no Banco Central (LIST_URRENCY_URL) e retorno da cotação do dia (CURRENCY_URL)
+
+Para a execução do projeto, renomeie o arquivo apenas para env.properties
 
 ```
 ### 🛠️ Desenvolvimento
