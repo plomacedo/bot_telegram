@@ -56,6 +56,7 @@ No BotDetails, ele irá carregar as informações contidas no arquivo de proprie
         this.currencyListUrl = environment.getProperty("telegram.currency.list_url");
         this.currencyRateUrl = environment.getProperty("telegram.currency.rate_url");
     }
+    
 ```
 
 Em nossa classe Bot, extendemos a classe TelegramLongPollingBot que é responsável por pegar periodicamente dados do telegram de forma automática. 
@@ -101,4 +102,22 @@ Montamos a resposta a ser enviada para o usuário através do objeto SendMessage
 				.chatId(chatId)
 				.build();
 	}
+```
+A classe Greetings, irá retornar um cumprimento para o usuário utilizando o primeiro nome do user, e identifica o período do dia (Bom dia, Boa Tarde e Boa Noite)
+```
+    public static String initialGreeting(String nome) {
+            return  String.format("Olá%s, %s! \nSeja bem vindo(a) ao bot da turma 1SCJR!", nome, periodo());
+    }
+
+    private static String periodo() {
+        LocalTime now = LocalTime.now();
+        if ((!now.isBefore(MORNING)) && now.isBefore(AFTER_NOON)) {
+            return "bom dia";
+        } else if ((!now.isBefore(AFTER_NOON)) && now.isBefore(EVENING)) {
+            return "boa tarde";
+        } else {
+            return "boa noite";
+        }
+    }
+}
 ```
