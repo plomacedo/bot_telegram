@@ -49,7 +49,10 @@ Em nossa classe Bot, extendemos a classe TelegramLongPollingBot que é responsá
  public class Bot extends TelegramLongPollingBot
 ```
 
-Esta API implementa 3 métodos: 
+Esta API implementa 3 métodos: onUpdateReceived, getBotUsername e getBotToken.
+
+O método onUpdateReceived é responsável por escutar as requisições das mensagens recebidas pelo bot. Através desse método, o Bot verifica se é recebido uma mensagem de texto, e caso positivo, criamos a mensagem através do objeto SendMessage reply.
+
 ```
 public void onUpdateReceived(Update update) {
 		if (update.hasMessage() && update.getMessage().hasText()) {
