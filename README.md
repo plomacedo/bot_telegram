@@ -44,10 +44,12 @@ try {
 		}
 ```
 
+Em nossa classe Bot, extendemos a classe TelegramLongPollingBot que é responsável por pegar periodicamente dados do telegram de forma automática. 
 ```
  public class Bot extends TelegramLongPollingBot
 ```
 
+Esta API implementa 3 métodos: 
 ```
 public void onUpdateReceived(Update update) {
 		if (update.hasMessage() && update.getMessage().hasText()) {
@@ -59,7 +61,9 @@ public void onUpdateReceived(Update update) {
 			}
 		}
 	}
-
+```
+Os métodos getBotUsername e getBotToken são responsáveis por pegar o token e o nome do bot criados para o nosso projeto que estão armazenados como constantes na classe DataBot
+```
 	public String getBotUsername() {
 		return DataBot.BOT_USER_NAME;
 	}
