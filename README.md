@@ -152,4 +152,6 @@ A classe Greetings, irá retornar um cumprimento para o usuário utilizando o pr
     }
 }
 ```
+Na classe Weather é implementado o bot de clima que retorna temperatura, data, hora, condições climáticas, período do dia, cidade, umidade 
 
+Weather(temp=19, date=15/10/2022, time=16:53, conditionCode=null, description=Chuvas esparsas, currently=dia, city=São Paulo, SP, humidity=89, cloudiness=75.0, rain=0.84, windSpeedy=null, windDirection=null, sunrise=05:33 am, sunset=06:10 pm, condition_slug=rain, city_name=São Paulo)
