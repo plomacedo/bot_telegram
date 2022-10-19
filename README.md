@@ -2,7 +2,7 @@
 
 # MBA Fullstack FIAP - Turma 1SCJR
 
-+ RM346614 - Ebbert Costa dos Santos 
++ RM346614 - Ebertt Costa dos Santos 
 + RM346139 - Juliana Mota Carneiro 
 + RM347401 - Pamela Lais Oliveira Macedo 
 + RM346573 - Rafael Luiz Ross de Moura 
@@ -22,6 +22,19 @@ public class DataBot {
 ```
 ### 🛠️ Desenvolvimento
 
+Para o gerenciamento de dependências, utilizamos Maven, onde adicionamos a dependência do telegram no arquivo pom.xml
+
+```
+ <dependencies>
+  	<dependency>
+  		<groupId>org.telegram</groupId>
+		<artifactId>telegrambots</artifactId>
+		<version>5.3.0</version>
+  	</dependency>
+  </dependencies>
+```
+
+
 ```
 try {
 			TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
@@ -31,10 +44,12 @@ try {
 		}
 ```
 
+Em nossa classe Bot, extendemos a classe TelegramLongPollingBot que é responsável por pegar periodicamente dados do telegram de forma automática. 
 ```
  public class Bot extends TelegramLongPollingBot
 ```
 
+Esta API implementa 3 métodos: 
 ```
 public void onUpdateReceived(Update update) {
 		if (update.hasMessage() && update.getMessage().hasText()) {
@@ -46,7 +61,9 @@ public void onUpdateReceived(Update update) {
 			}
 		}
 	}
-
+```
+Os métodos getBotUsername e getBotToken são responsáveis por pegar o token e o nome do bot criados para o nosso projeto que estão armazenados como constantes na classe DataBot
+```
 	public String getBotUsername() {
 		return DataBot.BOT_USER_NAME;
 	}
