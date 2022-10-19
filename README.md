@@ -103,6 +103,37 @@ Montamos a resposta a ser enviada para o usuário através do objeto SendMessage
 				.build();
 	}
 ```
+
+A classe ResponseHandler irá receber mensagem e irá fazer os comparativos para determinar qual o tipo de resposta o usuário irá receber.
+
+```
+if (message.startsWith("ola")) {
+            String firstName;
+            if (update.getMessage().getFrom() != null) {
+                firstName = " " + update.getMessage().getFrom().getFirstName();
+            } else {
+                firstName = "";
+            }
+            reply = Greetings.initialGreeting(firstName);
+        } else if (message.startsWith("cotacao")) {
+            reply = CurrencyService.response(message, botDetails.getCurrencyListUrl(), botDetails.getCurrencyRateUrl());
+        }
+        else if (message.startsWith("clima")) {
+            reply = Weather.response(message, botDetails.getWeatherApiUrl(), botDetails.getWeatherApiToken());
+        } else if (message.startsWith("quem é você") || message.startsWith("quem e voce")) {
+            reply = getGroupInfo();
+        }else if ("data".equals(message)) {
+            reply = getData();
+        } else if (message.startsWith("hora")) {
+            reply = getHora();
+        } else if (message.startsWith("/help")) {
+            reply = "Utilize um dos comandos:\nolá\ndata\nhora\nquem é você?";
+        } else {
+            reply = "Não entendi!\nDigite /help para ver os comandos disponíveis.";
+        }
+        return reply;
+```
+
 A classe Greetings, irá retornar um cumprimento para o usuário utilizando o primeiro nome do user, e identifica o período do dia (Bom dia, Boa Tarde e Boa Noite)
 ```
     public static String initialGreeting(String nome) {
@@ -121,3 +152,4 @@ A classe Greetings, irá retornar um cumprimento para o usuário utilizando o pr
     }
 }
 ```
+
