@@ -31,7 +31,7 @@ Para o gerenciamento de dependências, utilizamos Maven, onde adicionamos as dep
   </dependencies>
 ```
 
-Para inicializar a aplicação, no @bean do spring boot, o Environment irá buscar os dados no env.properties, e iniciar a chamada da api
+Para inicializar a aplicação, no @bean do spring boot, o Environment irá buscar os dados no env.properties através da instância do BotDetails, e iniciar a chamada da api
 ```
 @Bean
 	ApplicationRunner applicationRunner (Environment environment) {
@@ -45,6 +45,17 @@ Para inicializar a aplicação, no @bean do spring boot, o Environment irá busc
 			}
 		};
 	}
+```
+No BotDetails, ele irá carregar as informações contidas no arquivo de propriedades env.properties
+```
+ public BotDetails(Environment environment) {
+        this.botToken = environment.getProperty("telegram.token");
+        this.botUserName = environment.getProperty("telegram.username");
+        this.weatherApiUrl = environment.getProperty("telegram.weather.url");
+        this.weatherApiToken = environment.getProperty("telegram.weather.token");
+        this.currencyListUrl = environment.getProperty("telegram.currency.list_url");
+        this.currencyRateUrl = environment.getProperty("telegram.currency.rate_url");
+    }
 ```
 
 Em nossa classe Bot, extendemos a classe TelegramLongPollingBot que é responsável por pegar periodicamente dados do telegram de forma automática. 
@@ -70,12 +81,12 @@ public void onUpdateReceived(Update update) {
 ```
 Os métodos getBotUsername e getBotToken são responsáveis por pegar o token e o nome do bot criados para o nosso projeto que estão armazenados como constantes na classe DataBot
 ```
-	public String getBotUsername() {
-		return DataBot.BOT_USER_NAME;
+public String getBotUsername() {
+		return this.botDetails.getBotUserName();
 	}
 
 	public String getBotToken() {
-		return DataBot.BOT_TOKEN;
+		return this.botDetails.getBotToken();
 	}
 
 ```
