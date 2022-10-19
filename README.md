@@ -79,30 +79,14 @@ Os métodos getBotUsername e getBotToken são responsáveis por pegar o token e 
 	}
 
 ```
+Montamos a resposta a ser enviada para o usuário através do objeto SendMessage reply
 ```
 	private SendMessage reply(Update update) {
-		var message = update.getMessage().getText().toLowerCase();
+
 		var chatId = update.getMessage().getChatId().toString();
 
-		var reply = "";
-
-
-		if (message.startsWith("ola") || message.startsWith("olá") || message.startsWith("oi")) {
-			reply = "Olá, Seja bem vindo(a) ao bot da turma 1SCJR!";
-		} else if (message.startsWith("quem é você") || message.startsWith("quem e voce")) {
-			reply = getGroupInfo();
-		}else if ("data".equals(message)||"dia".equals(message)) {
-			reply = "A data de hoje é " + getData();
-		} else if (message.startsWith("hora")) {
-			reply = "A hora atual é " + getHora();
-		} else if (message.startsWith("/help")) {
-			reply = "Utilize um dos comandos:\nolá\ndata\nhora\nquem é você?";
-		} else {
-			reply = "Não entendi!\nDigite /help para ver os comandos disponíveis.";
-		}
-
 		return SendMessage.builder()
-				.text(reply)
+				.text(ResponseHandler.response(update, botDetails))
 				.chatId(chatId)
 				.build();
 	}
