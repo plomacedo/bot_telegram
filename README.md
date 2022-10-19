@@ -33,12 +33,18 @@ Para o gerenciamento de dependências, utilizamos Maven, onde adicionamos as dep
 
 Para inicializar a aplicação, no @bean do spring boot, o Environment irá buscar os dados no env.properties, e iniciar a chamada da api
 ```
-try {
-			TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-			telegramBotsApi.registerBot(new Bot());
-		} catch (TelegramApiException e) {
-			e.printStackTrace();
-		}
+@Bean
+	ApplicationRunner applicationRunner (Environment environment) {
+
+		return args -> {
+			try {
+				TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
+				telegramBotsApi.registerBot(new Bot(new BotDetails(environment)));
+			} catch (TelegramApiException e) {
+				e.printStackTrace();
+			}
+		};
+	}
 ```
 
 Em nossa classe Bot, extendemos a classe TelegramLongPollingBot que é responsável por pegar periodicamente dados do telegram de forma automática. 
