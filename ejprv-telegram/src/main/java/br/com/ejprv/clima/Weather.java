@@ -16,6 +16,7 @@ import java.util.List;
 @ToString
 @Getter
 @Setter
+
 public class Weather {
 
     private Number temp;
@@ -58,5 +59,17 @@ public class Weather {
     }
 
 
+    @Override
+    public String toString() {
 
+        return String.format("*Clima em %s:\n" +
+                "* \uD83C\uDF21️ *Temperatura:* %s ºC\n" +
+                "* \uD83D\uDCC6 *Dia:* %s .\n" +
+                "* \uD83D\uDD5B *Hora:* %s \n" +
+                "* \uD83C\uDFD9️ *Clima:* %s \n" +
+                "* \uD83D\uDCA7 *Umidade:* %s \n" +
+                "* \uD83D\uDCA8 *Vento:* %s \n" +
+                "* \uD83C\uDF04 *Amanhecer:* %s \n" +
+                "* \uD83C\uDF07 *Pôr do Sol:* %s ", city_name, temp, date, time, description, humidity, windSpeedy == null ? "-" : windSpeedy, sunrise, sunset);
+    }
 }
