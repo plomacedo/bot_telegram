@@ -1,5 +1,3 @@
-#EM CONSTRUÇÃO
-
 # MBA Fullstack FIAP - Turma 1SCJR
 
 + RM346614 - Ebertt Costa dos Santos 
@@ -16,6 +14,43 @@ Neste mesmo arquivo, consta a url da API utilizada para o bot de tempo (WEATHER_
 
 Para a execução do projeto, renomeie o arquivo apenas para env.properties
 
+
+### 🤖 Interagindo com o Bot: 
+     1. Olá
+     2. Clima
+     3. Quem e voce
+     4. Data
+     5. Hora
+     6. /help
+     
+**Clima em** São Paulo, SP:
+* 🌡️ **Temperatura:** 19ºC.
+* 📆 **Dia:** 15/10/2022.
+* 🕛 **Hora:** 16h53.
+* 🏙️ **Clima:** Chuvas esparsas.
+* 💧 **Umidade:** 89%.
+* 💨 **Vento:** null (se tiver uma resposta, poderia ser por exemplo: 💨 **Vento:** 5.14 km/h)
+* 🌄 **Amanhecer:** 05:33 am. 
+* 🌇 **Pôr do Sol:** 06:17 pm.
+
+Digite: cotação simbolo_moeda
+Ex: **cotação USD** 
+
++ USDAUD - Dólar Australiano 
++ CAD - Dólar Canadense 
++ CHF - Franco Suiço
++ DKK - Coroa Dinamarquesa
++ EUR - Euro
++ GBP - Libra Esterlina
++ JPY - Iene
++ NOK - Coroa Norueguesa
++ SEK - Coroa Sueca
++ USD - Dólar Estadunidense
+
+🤑 Cotação do **DÓLAR CANADENSE**: 
+* **Comercial:** $ 3.3702 
+* **Turismo:** $ 3.3716
+* **Data:** 2022-10-05 13:10:18
 
 ### 🛠️ Desenvolvimento
 
