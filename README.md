@@ -55,7 +55,7 @@ Ex: **cotação USD**
 
 Para o gerenciamento de dependências, utilizamos Maven, onde adicionamos as dependências do telegram e do spring boot no arquivo pom.xml
 
-```
+```xml
  <dependencies>
   	<dependency>
   		<groupId>org.telegram</groupId>
@@ -66,7 +66,7 @@ Para o gerenciamento de dependências, utilizamos Maven, onde adicionamos as dep
 ```
 
 Para inicializar a aplicação, no @bean do spring boot, o Environment irá buscar os dados no env.properties através da instância do BotDetails, e iniciar a chamada da api
-```
+```java
 @Bean
 	ApplicationRunner applicationRunner (Environment environment) {
 
@@ -81,7 +81,7 @@ Para inicializar a aplicação, no @bean do spring boot, o Environment irá busc
 	}
 ```
 No BotDetails, ele irá carregar as informações contidas no arquivo de propriedades env.properties
-```
+```java
  public BotDetails(Environment environment) {
         this.botToken = environment.getProperty("telegram.token");
         this.botUserName = environment.getProperty("telegram.username");
@@ -94,7 +94,7 @@ No BotDetails, ele irá carregar as informações contidas no arquivo de proprie
 ```
 
 Em nossa classe Bot, extendemos a classe TelegramLongPollingBot que é responsável por pegar periodicamente dados do telegram de forma automática. 
-```
+```java
  public class Bot extends TelegramLongPollingBot
 ```
 
@@ -102,7 +102,7 @@ Esta API implementa 3 métodos: onUpdateReceived, getBotUsername e getBotToken.
 
 O método onUpdateReceived é responsável por escutar as requisições das mensagens recebidas pelo bot. Através desse método, o Bot verifica se é recebido uma mensagem de texto, e caso positivo, criamos a mensagem através do objeto SendMessage reply.
 
-```
+```java
 public void onUpdateReceived(Update update) {
 		if (update.hasMessage() && update.getMessage().hasText()) {
 			var message = reply(update);
@@ -115,7 +115,7 @@ public void onUpdateReceived(Update update) {
 	}
 ```
 Os métodos getBotUsername e getBotToken são responsáveis por pegar o token e o nome do bot criados para o nosso projeto que estão armazenados como constantes na classe DataBot
-```
+```java
 public String getBotUsername() {
 		return this.botDetails.getBotUserName();
 	}
@@ -126,7 +126,7 @@ public String getBotUsername() {
 
 ```
 Montamos a resposta a ser enviada para o usuário através do objeto SendMessage reply
-```
+```java
 	private SendMessage reply(Update update) {
 
 		var chatId = update.getMessage().getChatId().toString();
@@ -140,7 +140,7 @@ Montamos a resposta a ser enviada para o usuário através do objeto SendMessage
 
 A classe ResponseHandler irá receber mensagem e irá fazer os comparativos para determinar qual o tipo de resposta o usuário irá receber.
 
-```
+```java
 if (message.startsWith("ola")) {
             String firstName;
             if (update.getMessage().getFrom() != null) {
@@ -169,7 +169,7 @@ if (message.startsWith("ola")) {
 ```
 
 A classe Greetings, irá retornar um cumprimento para o usuário utilizando o primeiro nome do user, e identifica o período do dia (Bom dia, Boa Tarde e Boa Noite)
-```
+```java
     public static String initialGreeting(String nome) {
             return  String.format("Olá%s, %s! \nSeja bem vindo(a) ao bot da turma 1SCJR!", nome, periodo());
     }
@@ -188,11 +188,11 @@ A classe Greetings, irá retornar um cumprimento para o usuário utilizando o pr
 ```
 Na classe Weather, através do método get, passando a url e a cidade desejada, é retornado os dados de  temperatura, data, hora, condições climáticas, período do dia, cidade, umidade, vrlocidade do vento, horário em que o sol nasce e horario que o sol se põe da cidade inserida:
 
-```
+```java
    var url = apiUrl.replace(":token", apiToken).replace(":city", String.join(" ", city));
     JsonNode json = Unirest.get(url).asJson().getBody();
 ```
-```
+```java
   return String.format("*Clima em %s:\n" +
                 "* \uD83C\uDF21️ *Temperatura:* %s ºC\n" +
                 "* \uD83D\uDCC6 *Dia:* %s .\n" +
