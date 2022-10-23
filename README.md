@@ -152,6 +152,22 @@ A classe Greetings, irá retornar um cumprimento para o usuário utilizando o pr
     }
 }
 ```
-Na classe Weather é implementado o bot de clima que retorna temperatura, data, hora, condições climáticas, período do dia, cidade, umidade 
+Na classe Weather, através do método get, passando a url e a cidade desejada, é retornado os dados de  temperatura, data, hora, condições climáticas, período do dia, cidade, umidade, vrlocidade do vento, horário em que o sol nasce e horario que o sol se põe da cidade inserida:
 
-Weather(temp=19, date=15/10/2022, time=16:53, conditionCode=null, description=Chuvas esparsas, currently=dia, city=São Paulo, SP, humidity=89, cloudiness=75.0, rain=0.84, windSpeedy=null, windDirection=null, sunrise=05:33 am, sunset=06:10 pm, condition_slug=rain, city_name=São Paulo)
+```
+   var url = apiUrl.replace(":token", apiToken).replace(":city", String.join(" ", city));
+    JsonNode json = Unirest.get(url).asJson().getBody();
+```
+```
+  return String.format("*Clima em %s:\n" +
+                "* \uD83C\uDF21️ *Temperatura:* %s ºC\n" +
+                "* \uD83D\uDCC6 *Dia:* %s .\n" +
+                "* \uD83D\uDD5B *Hora:* %s \n" +
+                "* \uD83C\uDFD9️ *Clima:* %s \n" +
+                "* \uD83D\uDCA7 *Umidade:* %s \n" +
+                "* \uD83D\uDCA8 *Vento:* %s \n" +
+                "* \uD83C\uDF04 *Amanhecer:* %s \n" +
+                "* \uD83C\uDF07 *Pôr do Sol:* %s ", city_name, temp, date, time, description, humidity, windSpeedy == null ? "-" : windSpeedy, sunrise, sunset);
+    }
+}
+```
